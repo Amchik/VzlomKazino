@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="VzlomKazino.MainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label Text="Взлом казино 1.1" TextColor="Gray" FontSize="25" HorizontalTextAlignment="Center" />
+        <Grid Grid.Row="1">
+            <StackLayout Orientation="Horizontal">
+                <Button Clicked="Button_Clicked_2" Text="Player info" BackgroundColor="Transparent" TextColor="Blue" />
+                <Button Clicked="Button_Clicked_3" Text="Reset stats" BackgroundColor="Transparent" TextColor="Blue" HorizontalOptions="End" />
+            </StackLayout>
+        </Grid>
+        <Grid Grid.Row="2">
+            <!--
+            Here is states of app
+            Yes, i can't create files
+            -->
+            <Grid IsVisible="True" x:Name="state1">
+                <Button Clicked="Button_Clicked" Text="Начать взлом" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="300" />
+            </Grid>
+            <Grid x:Name="state2" IsVisible="False">
+                <StackLayout VerticalOptions="Center">
+                    <Label Text="Взлом казино..." FontSize="19" />
+                    <ProgressBar x:Name="progressBar" Progress="0" />
+                    <Label x:Name="pgLabel" Text="{Binding Progress}" FontSize="19" />
+                    <Button Text="Отмена" Clicked="Button_Clicked_1" />
+                </StackLayout>
+            </Grid>
+            <Grid x:Name="state3" IsVisible="False">
+                <StackLayout VerticalOptions="Center">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Получено: " FontSize="25" />
+                        <Label x:Name="vzLabel" Text="{Binding Vzlomano}" FontSize="25" />
+                        <Label Text="₽" FontSize="25" />
+                    </StackLayout>
+                    <Button Text="Взломать ещё" Clicked="Button_Clicked" />
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</ContentPage>
